@@ -9,7 +9,7 @@ image=${1:-}
 wrapper_version=$(docker run --rm --entrypoint bash "${image}" -c 'echo ${WRAPPER_VERSION}')
 
 # Get mesos-slave version
-mesos_version=$(docker run --rm --entrypoint bash "${image}" -c "mesos-slave --version | tr -s ' ' | cut -d ' ' -f 2")
+mesos_version=$(docker run --rm --entrypoint bash "${image}" -c "mesos-slave --version --work_dir=/tmp/mesos | tr -s ' ' | cut -d ' ' -f 2")
 
 # Get docker version from DOCKER_VERSION env variable
 docker_version=$(docker run --rm --entrypoint bash "${image}" -c 'echo "${DOCKER_VERSION}" | cut -d "-" -f 1')
