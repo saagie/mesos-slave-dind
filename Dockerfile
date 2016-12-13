@@ -1,4 +1,4 @@
-FROM mesosphere/mesos-slave:1.0.0-2.0.89.ubuntu1404
+FROM mesosphere/mesos-slave:1.1.01.1.0-2.0.107.ubuntu1404
 MAINTAINER Mesosphere <support@mesosphere.io>
 
 RUN apt-get update -qq && \
@@ -23,7 +23,7 @@ RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 581
         && \
     apt-get clean
 
-ENV WRAPPER_VERSION 0.2.4
+ENV WRAPPER_VERSION 0.3.0
 COPY ./wrapdocker /usr/local/bin/
 
 ENTRYPOINT ["wrapdocker"]
